@@ -1,5 +1,5 @@
 {
-  "note": "SYNTHETIC smoke run with a scripted model \u2014 proves the pipeline, not the model. Run `make eval` with a real key for headline numbers.",
+  "note": "SYNTHETIC smoke run with a scripted model \u2014 proves the pipeline, not the model. Run the real eval with a key for headline numbers.",
   "records": [
     {
       "system": "baseline",

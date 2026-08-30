@@ -73,8 +73,8 @@ def _write(out: Path, records: list[Record], summaries: dict, note: str) -> None
         "note": note,
         "records": [asdict(r) for r in records],
         "summaries": {k: asdict(v) for k, v in summaries.items()},
-    }, indent=2) + "\n")
-    (out / "report.md").write_text(render_markdown(summaries, note=note))
+    }, indent=2) + "\n", encoding="utf-8")
+    (out / "report.md").write_text(render_markdown(summaries, note=note), encoding="utf-8")
     if render_chart(summaries, out / "metrics.png"):
         print(f"  chart -> {out / 'metrics.png'}")
     print(f"\nWrote {out/'results.json'}, {out/'report.md'}")
@@ -105,7 +105,7 @@ def main() -> None:
         print("Smoke run (scripted model, 1 task):")
         evaluate([task], _smoke_model(task), args.out / "smoke", config,
                  note="SYNTHETIC smoke run with a scripted model — proves the pipeline, not the model. "
-                      "Run `make eval` with a real key for headline numbers.")
+                      "Run the real eval with a key for headline numbers.")
         return
 
     tasks = load_all(args.tasks)

@@ -1,11 +1,9 @@
 """Trajectory capture.
 
-The challenge treats agent trajectories as a first-class, required deliverable, so they
-are not reconstructed after the fact — every phase, model turn, tool call, tool result,
-gate outcome and final verdict is appended to a JSONL file as it happens. One file per
-solve. The format is deliberately flat and greppable: each line is a self-contained event
-with a monotonically increasing sequence number and a phase, so a reviewer can read a run
-top to bottom or filter to a single phase without special tooling.
+Every phase, model turn, tool call, tool result, gate outcome and final verdict is
+appended to a JSONL file as it happens. One file per solve. The format is deliberately
+flat and greppable: each line is a self-contained event with a monotonically increasing
+sequence number and a phase.
 """
 from __future__ import annotations
 
@@ -24,15 +22,14 @@ class Tracer:
     def __post_init__(self) -> None:
         self.path = Path(self.path)
         self.path.parent.mkdir(parents=True, exist_ok=True)
-        self.path.write_text("")  # truncate any previous run
+        self.path.write_text("", encoding="utf-8")
 
     def _emit(self, phase: str, event: str, **data: Any) -> None:
         self._seq += 1
         record = {"seq": self._seq, "t": round(time.time(), 3), "phase": phase, "event": event, **data}
-        with self.path.open("a") as handle:
+        with self.path.open("a", encoding="utf-8") as handle:
             handle.write(json.dumps(record, default=str) + "\n")
 
-    # -- event helpers ---------------------------------------------------------------
     def phase_start(self, phase: str, note: str = "") -> None:
         self._emit(phase, "phase_start", note=note)
 
@@ -63,4 +60,6 @@ def _trim(payload: dict, limit: int = 4000) -> dict:
 
 def _trim_str(text: str, limit: int = 4000) -> str:
     text = str(text)
-    return text if len(text) <= limit else text[:limit] + f"\n… [{len(text) - limit} more chars]"
+    if len(text) <= limit:
+        return text
+    return text[:limit] + " [truncated]"
