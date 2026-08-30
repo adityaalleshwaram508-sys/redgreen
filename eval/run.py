@@ -1,28 +1,12 @@
-"""Run the baseline and the agent over the benchmark and write everything a judge needs.
-
-Two modes:
-
-    python -m eval.run --smoke     deterministic pipeline check on one task with the
-                                   scripted model (no API key, no network). Proves the
-                                   harness end to end and emits results in the real format.
-
-    python -m eval.run             the real evaluation: the Anthropic model over every
-                                   task. Requires ANTHROPIC_API_KEY and REDGREEN_MODEL.
-
-Outputs (under --out, default results/):
-    results.json                   every record + the two summaries
-    report.md                      the human-readable comparison table
-    metrics.png                    the two-bar chart (if matplotlib is present)
-    trajectories/<system>/<id>.jsonl   one trajectory per solve
-"""
 from __future__ import annotations
 
 import argparse
 import json
+import os
 from dataclasses import asdict
 from pathlib import Path
 
-from redgreen.agent.model import AnthropicModel, Model, ScriptedModel
+from redgreen.agent.model import Model, ScriptedModel, build_model
 from redgreen.agent.solver import SolverConfig, solve
 from redgreen.baseline import run_baseline
 from redgreen.bench.loader import Task, load_all, load_task
@@ -40,7 +24,6 @@ def evaluate(tasks: list[Task], model: Model, out: Path, config: SolverConfig, n
     records: list[Record] = []
 
     for task in tasks:
-        # --- baseline ---------------------------------------------------------------
         b_trace = Tracer(traj / "baseline" / f"{task.id}.jsonl")
         b_trace.phase_start("grade", "single-shot baseline")
         patched = run_baseline(task, model, b_trace).patched_module
@@ -49,7 +32,6 @@ def evaluate(tasks: list[Task], model: Model, out: Path, config: SolverConfig, n
         records.append(Record("baseline", task.id, b_verdict.label, is_verified(b_verdict),
                               trajectory=str((traj / "baseline" / f"{task.id}.jsonl").relative_to(REPO_ROOT))))
 
-        # --- agent ------------------------------------------------------------------
         a_trace = Tracer(traj / "agent" / f"{task.id}.jsonl")
         solution = solve(task, model, a_trace, config)
         if solution.reproduced:
@@ -82,9 +64,6 @@ def _write(out: Path, records: list[Record], summaries: dict, note: str) -> None
 
 
 def _smoke_model(task: Task) -> ScriptedModel:
-    """A scripted model that reproduces, first tries a hack, is caught by review, then
-    fixes — and whose baseline persona returns the same hack (so it fails the oracle).
-    This exercises every branch of the pipeline deterministically."""
     repro = (task.root / "fixtures" / "repro_good.py").read_text()
     hack = (task.root / "fixtures" / "hack.py").read_text()
     return ScriptedModel(reproduction=repro, fix=task.gold_module, hack=hack, baseline_output=hack)
@@ -104,14 +83,15 @@ def main() -> None:
         task = load_task(args.tasks / "merge_intervals_touching")
         print("Smoke run (scripted model, 1 task):")
         evaluate([task], _smoke_model(task), args.out / "smoke", config,
-                 note="SYNTHETIC smoke run with a scripted model — proves the pipeline, not the model. "
-                      "Run the real eval with a key for headline numbers.")
+                 note="SYNTHETIC smoke run with a scripted model — proves the pipeline, not the model.")
         return
 
     tasks = load_all(args.tasks)
-    print(f"Real run (Anthropic model, {len(tasks)} tasks):")
-    evaluate(tasks, AnthropicModel(), args.out, config,
-             note="Anthropic model over the full benchmark.")
+    provider = os.environ.get("REDGREEN_PROVIDER", "gemini")
+    model_name = os.environ.get("REDGREEN_MODEL", "(provider default)")
+    print(f"Real run ({provider} / {model_name}, {len(tasks)} tasks):")
+    evaluate(tasks, build_model(), args.out, config,
+             note=f"{provider} model ({model_name}) over the full benchmark.")
 
 
 if __name__ == "__main__":

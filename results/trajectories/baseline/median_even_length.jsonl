@@ -1,0 +1,2 @@
+{"seq": 1, "t": 1788115709.179, "phase": "grade", "event": "phase_start", "note": "single-shot baseline"}
+{"seq": 2, "t": 1788115709.18, "phase": "baseline", "event": "phase_start", "note": "single-shot patch, no verification loop"}

@@ -1,0 +1,4 @@
+{"seq": 1, "t": 1788115969.915, "phase": "grade", "event": "phase_start", "note": "single-shot baseline"}
+{"seq": 2, "t": 1788115969.916, "phase": "baseline", "event": "phase_start", "note": "single-shot patch, no verification loop"}
+{"seq": 3, "t": 1788115986.762, "phase": "baseline", "event": "model_turn", "text": "\"\"\"Sequence helpers.\"\"\"\n\n\ndef dedupe(items):\n    \"\"\"Remove duplicates, preserving the order of first occurrence.\"\"\"\n    return list(dict.fromkeys(items))", "tool_calls": []}
+{"seq": 4, "t": 1788115990.193, "phase": "grade", "event": "verdict", "label": "VERIFIED_FIX"}

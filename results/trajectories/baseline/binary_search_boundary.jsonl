@@ -1,0 +1,4 @@
+{"seq": 1, "t": 1788115937.28, "phase": "grade", "event": "phase_start", "note": "single-shot baseline"}
+{"seq": 2, "t": 1788115937.281, "phase": "baseline", "event": "phase_start", "note": "single-shot patch, no verification loop"}
+{"seq": 3, "t": 1788115946.417, "phase": "baseline", "event": "model_turn", "text": "\"\"\"Binary search over a sorted list.\"\"\"\n\n\ndef index_of(sorted_list, target):\n    \"\"\"Return the index of ``target`` in ``sorted_list``, or -1 if absent.\"\"\"\n    lo, hi = 0, len(sorted_list) - 1\n    while lo <= hi:\n        mid = (lo + hi) // 2\n        if sorted_list[mid] == target:\n            return mid\n        if sorted_list[mid] < target:\n            lo = mid + 1\n        else:\n            hi = mid - 1\n    return -1", "tool_calls": []}
+{"seq": 4, "t": 1788115948.517, "phase": "grade", "event": "verdict", "label": "VERIFIED_FIX"}
