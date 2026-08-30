@@ -10,7 +10,7 @@ deterministic; the live evaluation needs a Claude API key and one environment va
   `matplotlib` is optional and only used to render the results chart.
 
 ```bash
-git clone <your-fork-url> redgreen
+git clone https://github.com/adityaalleshwaram508-sys/redgreen.git
 cd redgreen
 python -m venv .venv && source .venv/bin/activate
 pip install -e .            # installs redgreen + pytest
