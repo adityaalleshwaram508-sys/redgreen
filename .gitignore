@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.DS_Store
+*_redgreen_junit.xml
+# The real `make eval` writes here — commit YOUR results for submission.
+# results/smoke/ is committed as an example of the output + trajectory format.
+results/no_reviewer/
