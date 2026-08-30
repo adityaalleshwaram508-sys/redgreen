@@ -1,5 +1,14 @@
 # redgreen
 
+![Python](https://img.shields.io/badge/python-3.10%2B-blue)
+![License: MIT](https://img.shields.io/badge/license-MIT-green)
+![tests](https://img.shields.io/badge/tests-39%20passing-brightgreen)
+![core result](https://img.shields.io/badge/core%20result-reproducible%20without%20an%20API%20key-8A2BE2)
+
+<!-- After you push, replace <your-username> below and delete these comment markers to show live CI status:
+[![ci](https://github.com/<your-username>/redgreen/actions/workflows/ci.yml/badge.svg)](https://github.com/<your-username>/redgreen/actions/workflows/ci.yml)
+-->
+
 **A test-first bug-fixing agent that produces fixes you can _prove_ — not just patches that look right.**
 
 Give redgreen a bug report and a Python module and it returns a fix *together with the
