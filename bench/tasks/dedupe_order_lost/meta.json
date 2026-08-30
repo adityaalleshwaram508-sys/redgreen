@@ -1,0 +1,12 @@
+{
+  "id": "dedupe_order_lost",
+  "title": "dedupe scrambles the order of the items",
+  "archetype": "set() loses first-occurrence order",
+  "difficulty": "easy",
+  "module": "sequences.py",
+  "tags": [
+    "dedupe",
+    "ordering",
+    "set"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "strip_tags_greedy",
+  "title": "strip_tags eats the text between tags",
+  "archetype": "greedy regex quantifier",
+  "difficulty": "easy",
+  "module": "html_tools.py",
+  "tags": [
+    "regex",
+    "greedy",
+    "html"
+  ]
+}

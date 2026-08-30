@@ -1,0 +1,12 @@
+{
+  "id": "median_even_length",
+  "title": "median is wrong for even-length inputs",
+  "archetype": "even-length median takes one element, not the mean of two",
+  "difficulty": "easy",
+  "module": "statistics_utils.py",
+  "tags": [
+    "statistics",
+    "median",
+    "edge"
+  ]
+}

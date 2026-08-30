@@ -1,0 +1,12 @@
+{
+  "id": "mutable_default_arg",
+  "title": "accumulate() remembers values from previous calls",
+  "archetype": "mutable default argument shared across calls",
+  "difficulty": "easy",
+  "module": "collect.py",
+  "tags": [
+    "default-arg",
+    "aliasing",
+    "state-leak"
+  ]
+}

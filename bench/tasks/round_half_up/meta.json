@@ -1,0 +1,12 @@
+{
+  "id": "round_half_up",
+  "title": "round_half_up rounds .5 the wrong way",
+  "archetype": "banker's rounding where half-up is intended",
+  "difficulty": "easy",
+  "module": "rounding.py",
+  "tags": [
+    "rounding",
+    "floating-point",
+    "edge"
+  ]
+}

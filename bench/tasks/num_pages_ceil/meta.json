@@ -1,0 +1,12 @@
+{
+  "id": "num_pages_ceil",
+  "title": "num_pages drops the final partial page",
+  "archetype": "floor division where ceiling is required",
+  "difficulty": "easy",
+  "module": "pagination.py",
+  "tags": [
+    "pagination",
+    "off-by-one",
+    "ceil"
+  ]
+}

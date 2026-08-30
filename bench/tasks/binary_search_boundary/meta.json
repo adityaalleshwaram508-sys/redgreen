@@ -1,0 +1,12 @@
+{
+  "id": "binary_search_boundary",
+  "title": "index_of misses elements at the ends of the list",
+  "archetype": "binary search off-by-one at the boundary",
+  "difficulty": "easy",
+  "module": "search.py",
+  "tags": [
+    "binary-search",
+    "off-by-one",
+    "boundary"
+  ]
+}

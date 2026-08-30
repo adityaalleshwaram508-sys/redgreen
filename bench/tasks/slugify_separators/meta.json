@@ -1,0 +1,12 @@
+{
+  "id": "slugify_separators",
+  "title": "slugify leaves doubled and trailing hyphens",
+  "archetype": "separators not collapsed or trimmed",
+  "difficulty": "easy",
+  "module": "text.py",
+  "tags": [
+    "text",
+    "slug",
+    "regex"
+  ]
+}

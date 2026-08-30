@@ -1,0 +1,12 @@
+{
+  "id": "split_evenly_remainder",
+  "title": "split_evenly loses cents when the total doesn't divide evenly",
+  "archetype": "integer division drops the remainder",
+  "difficulty": "easy",
+  "module": "money.py",
+  "tags": [
+    "money",
+    "rounding",
+    "invariant"
+  ]
+}
