@@ -5,7 +5,6 @@
 ![tests](https://img.shields.io/badge/tests-39%20passing-brightgreen)
 ![core result](https://img.shields.io/badge/core%20result-reproducible%20without%20an%20API%20key-8A2BE2)
 
-[![ci](https://github.com/adityaalleshwaram508-sys/redgreen/actions/workflows/ci.yml/badge.svg)](https://github.com/adityaalleshwaram508-sys/redgreen/actions/workflows/ci.yml)
 
 **A test-first bug-fixing agent that produces fixes you can _prove_ — not just patches that look right.**
 
