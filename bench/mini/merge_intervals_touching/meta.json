@@ -1,0 +1,9 @@
+{
+  "id": "merge_intervals_touching",
+  "title": "merge_intervals does not merge adjacent (touching) ranges",
+  "archetype": "boundary-condition: strict '<' where inclusive '<=' is required",
+  "difficulty": "easy",
+  "module": "ranges.py",
+  "tags": ["ranges", "boundary", "off-by-one"],
+  "real_world_analogue": "The same '<' vs '<=' slip shows up in calendar free/busy merging and genomic interval unions."
+}

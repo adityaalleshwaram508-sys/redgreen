@@ -1,0 +1,4 @@
+{"seq": 1, "t": 1788167209.985, "phase": "grade", "event": "phase_start", "note": "single-shot baseline"}
+{"seq": 2, "t": 1788167209.986, "phase": "baseline", "event": "phase_start", "note": "single-shot patch, no verification loop"}
+{"seq": 3, "t": 1788167221.792, "phase": "baseline", "event": "model_turn", "text": "\"\"\"Money splitting helpers. All amounts are integer cents.\"\"\"\n\n\ndef split_evenly(total_cents, people):\n    \"\"\"Split ``total_cents`` across ``people`` as evenly as possible.\n\n    The returned shares must sum to ``total_cents``.\n    \"\"\"\n    share = total_cents // people\n    remainder = total_cents % people\n    return [share + 1 if i < remainder else share for i in range(people)]", "tool_calls": []}
+{"seq": 4, "t": 1788167224.176, "phase": "grade", "event": "verdict", "label": "VERIFIED_FIX"}

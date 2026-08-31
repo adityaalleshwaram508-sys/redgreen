@@ -1,0 +1,4 @@
+{"seq": 1, "t": 1788170324.462, "phase": "grade", "event": "phase_start", "note": "single-shot baseline"}
+{"seq": 2, "t": 1788170324.463, "phase": "baseline", "event": "phase_start", "note": "single-shot patch, no verification loop"}
+{"seq": 3, "t": 1788170325.509, "phase": "baseline", "event": "model_turn", "text": "```python\n\"\"\"Rounding helpers.\"\"\"\n\nfrom decimal import Decimal, ROUND_HALF_UP\n\n\ndef round_half_up(x):\n    \"\"\"Round to the nearest integer, with halves rounding up.\"\"\"\n    return int(Decimal(str(x)).quantize(Decimal('1'), rounding=ROUND_HALF_UP))\n```", "tool_calls": []}
+{"seq": 4, "t": 1788170327.85, "phase": "grade", "event": "verdict", "label": "VERIFIED_FIX"}

@@ -1,0 +1,4 @@
+{"seq": 1, "t": 1788170423.998, "phase": "grade", "event": "phase_start", "note": "single-shot baseline"}
+{"seq": 2, "t": 1788170423.998, "phase": "baseline", "event": "phase_start", "note": "single-shot patch, no verification loop"}
+{"seq": 3, "t": 1788170427.46, "phase": "baseline", "event": "model_turn", "text": "```python\n\"\"\"Tiny HTML helpers.\"\"\"\nimport re\n\n\ndef strip_tags(html):\n    \"\"\"Remove HTML tags, keeping the text between them.\"\"\"\n    return re.sub(r\"<[^>]*>\", \"\", html)\n```", "tool_calls": []}
+{"seq": 4, "t": 1788170429.891, "phase": "grade", "event": "verdict", "label": "VERIFIED_FIX"}

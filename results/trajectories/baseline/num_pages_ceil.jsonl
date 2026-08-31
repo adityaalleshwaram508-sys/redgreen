@@ -1,0 +1,4 @@
+{"seq": 1, "t": 1788170291.291, "phase": "grade", "event": "phase_start", "note": "single-shot baseline"}
+{"seq": 2, "t": 1788170291.292, "phase": "baseline", "event": "phase_start", "note": "single-shot patch, no verification loop"}
+{"seq": 3, "t": 1788170292.381, "phase": "baseline", "event": "model_turn", "text": "```python\n\"\"\"Pagination helpers.\"\"\"\n\nimport math\n\n\ndef num_pages(total_items, page_size):\n    \"\"\"Number of pages needed to show ``total_items`` at ``page_size`` per page.\"\"\"\n    return math.ceil(total_items / page_size) if total_items > 0 else 0\n```", "tool_calls": []}
+{"seq": 4, "t": 1788170294.741, "phase": "grade", "event": "verdict", "label": "VERIFIED_FIX"}

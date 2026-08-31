@@ -30,7 +30,7 @@ def evaluate(tasks: list[Task], model: Model, out: Path, config: SolverConfig, n
         b_verdict = grade_module_only(task, patched)
         b_trace.verdict(b_verdict.label)
         records.append(Record("baseline", task.id, b_verdict.label, is_verified(b_verdict),
-                              trajectory=str((traj / "baseline" / f"{task.id}.jsonl").relative_to(REPO_ROOT))))
+                              trajectory=str((traj / "baseline" / f"{task.id}.jsonl"))))
 
         a_trace = Tracer(traj / "agent" / f"{task.id}.jsonl")
         solution = solve(task, model, a_trace, config)
@@ -41,7 +41,7 @@ def evaluate(tasks: list[Task], model: Model, out: Path, config: SolverConfig, n
         a_trace.verdict(a_verdict.label)
         records.append(Record("agent", task.id, a_verdict.label, is_verified(a_verdict),
                               reproduced=solution.reproduced,
-                              trajectory=str((traj / "agent" / f"{task.id}.jsonl").relative_to(REPO_ROOT))))
+                              trajectory=str((traj / "agent" / f"{task.id}.jsonl"))))
 
         print(f"  {task.id:32s}  baseline={b_verdict.label:14s}  agent={a_verdict.label}")
 

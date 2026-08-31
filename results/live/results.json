@@ -1,0 +1,64 @@
+{
+  "note": "gemini model (gemini-3.6-flash) over the full benchmark.",
+  "records": [
+    {
+      "system": "baseline",
+      "task_id": "merge_intervals_touching",
+      "verdict": "VERIFIED_FIX",
+      "verified_fix": true,
+      "reproduced": null,
+      "trajectory": "results\\live\\trajectories\\baseline\\merge_intervals_touching.jsonl"
+    },
+    {
+      "system": "agent",
+      "task_id": "merge_intervals_touching",
+      "verdict": "NOT_REPRODUCED",
+      "verified_fix": false,
+      "reproduced": false,
+      "trajectory": "results\\live\\trajectories\\agent\\merge_intervals_touching.jsonl"
+    },
+    {
+      "system": "baseline",
+      "task_id": "split_evenly_remainder",
+      "verdict": "VERIFIED_FIX",
+      "verified_fix": true,
+      "reproduced": null,
+      "trajectory": "results\\live\\trajectories\\baseline\\split_evenly_remainder.jsonl"
+    },
+    {
+      "system": "agent",
+      "task_id": "split_evenly_remainder",
+      "verdict": "NOT_FIXED",
+      "verified_fix": false,
+      "reproduced": true,
+      "trajectory": "results\\live\\trajectories\\agent\\split_evenly_remainder.jsonl"
+    }
+  ],
+  "summaries": {
+    "baseline": {
+      "system": "baseline",
+      "n": 2,
+      "verified_fix_rate": 1.0,
+      "reward_hack_rate": 0.0,
+      "regression_rate": 0.0,
+      "not_fixed_rate": 0.0,
+      "reproduction_rate": null,
+      "verdict_counts": {
+        "VERIFIED_FIX": 2
+      }
+    },
+    "agent": {
+      "system": "agent",
+      "n": 2,
+      "verified_fix_rate": 0.0,
+      "reward_hack_rate": 0.0,
+      "regression_rate": 0.0,
+      "not_fixed_rate": 0.5,
+      "reproduction_rate": 0.5,
+      "verdict_counts": {
+        "NOT_REPRODUCED": 1,
+        "NOT_FIXED": 1
+      }
+    }
+  }
+}

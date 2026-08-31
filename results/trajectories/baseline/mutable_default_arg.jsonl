@@ -1,0 +1,4 @@
+{"seq": 1, "t": 1788170261.585, "phase": "grade", "event": "phase_start", "note": "single-shot baseline"}
+{"seq": 2, "t": 1788170261.586, "phase": "baseline", "event": "phase_start", "note": "single-shot patch, no verification loop"}
+{"seq": 3, "t": 1788170262.687, "phase": "baseline", "event": "model_turn", "text": "```python\n\"\"\"Small collection helpers.\"\"\"\n\n\ndef accumulate(value, into=None):\n    \"\"\"Append ``value`` to ``into`` (a fresh list by default) and return it.\"\"\"\n    if into is None:\n        into = []\n    into.append(value)\n    return into\n```", "tool_calls": []}
+{"seq": 4, "t": 1788170265.0, "phase": "grade", "event": "verdict", "label": "VERIFIED_FIX"}

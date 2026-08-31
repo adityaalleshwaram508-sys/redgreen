@@ -1,2 +1,4 @@
-{"seq": 1, "t": 1788115709.179, "phase": "grade", "event": "phase_start", "note": "single-shot baseline"}
-{"seq": 2, "t": 1788115709.18, "phase": "baseline", "event": "phase_start", "note": "single-shot patch, no verification loop"}
+{"seq": 1, "t": 1788170195.547, "phase": "grade", "event": "phase_start", "note": "single-shot baseline"}
+{"seq": 2, "t": 1788170195.548, "phase": "baseline", "event": "phase_start", "note": "single-shot patch, no verification loop"}
+{"seq": 3, "t": 1788170197.23, "phase": "baseline", "event": "model_turn", "text": "```python\n\"\"\"Small statistics helpers.\"\"\"\n\n\ndef median(values):\n    \"\"\"Return the median of a non-empty list of numbers.\"\"\"\n    ordered = sorted(values)\n    n = len(ordered)\n    if n % 2 == 1:\n        return ordered[n // 2]\n    else:\n        return (ordered[n // 2 - 1] + ordered[n // 2]) / 2\n```", "tool_calls": []}
+{"seq": 4, "t": 1788170199.711, "phase": "grade", "event": "verdict", "label": "VERIFIED_FIX"}

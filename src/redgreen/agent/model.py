@@ -58,7 +58,7 @@ class AnthropicModel:
     def respond(self, system: str, messages: list[dict], tools: list[dict]) -> ModelResponse:
         resp = self._client_lazy().messages.create(
             model=self.model, system=system, messages=messages, tools=tools,
-            max_tokens=self.max_tokens, temperature=self.temperature,
+            max_tokens=self.max_tokens,
         )
         text_parts: list[str] = []
         calls: list[ToolCall] = []
